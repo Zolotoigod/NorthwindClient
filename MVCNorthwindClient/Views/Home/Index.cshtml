@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3>There is a MVC Client for Northwind APP</h3>
+</div>
+
+<div class="row m-1 p-1">
+        <div class="container-fluid">
+            <a class="btn btn-secondary btn-lg btn-block mb-2" asp-controller="Product" asp-action="Products"><i class="fa-solid fa-box mr-2"></i>Products</a>
+        </div>
+        <div class="container-fluid">
+            <a class="btn btn-secondary btn-lg btn-block mb-2" asp-controller="Category" asp-action="Index"><i class="fa-solid fa-list mr-2"></i>Category</a>
+        </div>
+        <div class="container-fluid">
+            <a class="btn btn-secondary btn-lg btn-block mb-2" asp-controller="Blogging" asp-action="Index"><i class="fa-solid fa-circle-user mr-2"></i>BlogPage</a>
+        </div>
+</div>

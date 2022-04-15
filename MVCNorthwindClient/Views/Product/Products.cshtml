@@ -1,0 +1,43 @@
+﻿@model ProductList
+
+  <h2 class="col-3">Products</h2>
+  
+  <table class="table table-bordered table-striped">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th class="text-center font-weight-bolder">Name</th>
+              <th class="text-center font-weight-bolder">Price</th>
+              <th class="text-right font-weight-bolder">Unit on stock</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          @foreach (var product in Model.Products) {
+              <tr>
+                  <td class="text-left font-weight-bolder">@product.ProductId</td>
+                  <td><a class="text-dark font-weight-bolder"
+                          asp-controller="Product"
+                          asp-action="Product"
+                          asp-route-productId="@product.ProductId">@product.ProductName</a>
+                </td>
+                  <td class="text-center font-weight-bolder">@product.UnitPrice.Value.ToString("c", new CultureInfo("en-us"))</td>
+                  <td class="text-right font-weight-bolder">@product.UnitsInStock</td>
+                  <td>
+                    <a class="btn btn-danger btn-sm btn-block"
+                        asp-controller="Product"
+                        asp-action="Remove"
+                        asp-route-productId="@product.ProductId">Remove</a>
+                  </td>
+              </tr>
+          }
+      </tbody>
+  </table>
+
+<a class="col-5 btn btn-primary btn-lg btn-block" asp-controller="Product" asp-action="CreateProduct">Add new product</a>
+
+<div page-model="@Model.PagingInfo" page-action="Products" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     class="btn-group float-right m-1">
+</div>

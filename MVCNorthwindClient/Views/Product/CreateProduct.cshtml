@@ -1,0 +1,31 @@
+﻿@model Product
+
+<form method="post" asp-action="Create" asp-controller="Product" asp-antiforgery="true">
+    <table class="table table-bordered table-striped">
+        <tr>       
+            <td><label class="form-label">ProductName</label></td>
+            <td><input class="form-control" type="text" asp-for="ProductName"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label">SupplierId</label></td>
+            <td><input class="form-control" asp-for="SupplierId"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label">QuantityPerUnit</label></td>
+            <td><input class="form-control" type="text" asp-for="QuantityPerUnit"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label">UnitPrice</label></td>
+            <td><input class="form-control" asp-for="UnitPrice"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label">UnitsInStock</label></td>
+            <td><input class="form-control" asp-for="UnitsInStock"/></td>
+        </tr>        
+    </table>
+    <div class="form-check mb-1">
+        <input class="form-check-input" type="checkbox" asp-for="Discontinued"/>
+        <label class="form-check-label">Discontinued</label>
+    </div>
+    <button type="submit" class="btn btn-primary ">Save changes</button>
+</form>
