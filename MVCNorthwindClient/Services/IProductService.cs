@@ -6,7 +6,7 @@ namespace MVCNorthwindClient.Services
 {
     public interface IProductService
     {
-        public Task<IEnumerable<Product>> GetMany(int offset, int limit);
+        public Task<IEnumerable<ViewProduct>> GetMany(int offset, int limit);
 
         public Task<Product> GetById(int productId);
 

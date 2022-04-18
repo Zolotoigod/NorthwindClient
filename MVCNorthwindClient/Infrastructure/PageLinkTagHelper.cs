@@ -42,7 +42,7 @@ namespace MVCNorthwindClient.Infrastructure
 
             AddPage(urlHelper, result, 1, "First");
 
-            for (int i = page; i <= page + 5; i++)
+            for (int i = page; i <= page + PageModel.ItemsPerPage; i++)
             {
                 if (i > PageModel.TotalPages)
                 {

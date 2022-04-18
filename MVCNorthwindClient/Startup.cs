@@ -21,6 +21,7 @@ namespace MVCNorthwindClient
         {
             services.AddControllersWithViews();
             services.AddSingleton<IProductService>(new ProductService(Configuration.GetSection("BasePath").Value));
+            services.AddSingleton<ICategoryService>(new CategoryService(Configuration.GetSection("BasePath").Value));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

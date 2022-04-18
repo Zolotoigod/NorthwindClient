@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MVCNorthwindClient.Models
+﻿namespace MVCNorthwindClient.Models
 {
     public class PagingInfo
     {

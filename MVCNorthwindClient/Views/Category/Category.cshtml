@@ -1,0 +1,29 @@
+﻿@model Category
+
+<form id="@Model.CategoryId" method="post" asp-action="Update" asp-controller="Category" asp-route-id="@Model.CategoryId" asp-antiforgery="true">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>CategoryId</td>
+                <td>#@Model.CategoryId</td>
+            </tr>
+        </thead>
+        <tr>       
+            <td><label class="form-label" asp-for="CategoryName"></label></td>
+            <td><input class="form-control" type="text" asp-for="CategoryName"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label" asp-for="Description"></label></td>
+            <td><input class="form-control" asp-for="Description"/></td>
+        </tr>        
+    </table>
+    <button type="submit" class="btn btn-primary ">Save changes</button>
+</form>
+<div class="container">
+    <div class="row justify-content-end">
+        <form id="@Model.CategoryId" method="post" enctype="multipart/form-data" asp-action="UpdatePicture" asp-controller="Category" asp-route-categoryId="@Model.CategoryId" asp-antiforgery="true">
+            <input type="file" asp-for="Picture"/>
+            <button type="submit" value="Upload" class="btn btn-primary float-right">Update picture</button>
+        </form>
+    </div>
+</div>

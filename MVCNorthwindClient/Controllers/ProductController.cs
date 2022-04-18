@@ -57,9 +57,9 @@ namespace MVCNorthwindClient.Controllers
         {
             totalPages = (int)Math.Ceiling((decimal)(await service.GetCount()) / pageSize);
             var collection = await service.GetMany((currentPage - 1) * pageSize, pageSize);
-            return View(new ProductList()
+            return View(new ItemList<ViewProduct>()
             {
-                Products = collection,
+                Items = collection,
                 PagingInfo = new PagingInfo()
                 {
                     ItemCount = collection.Count(),

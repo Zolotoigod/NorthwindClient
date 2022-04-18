@@ -1,4 +1,4 @@
-﻿@model ProductList
+﻿@model ItemList<ViewProduct>
 
   <h2 class="col-3">Products</h2>
   
@@ -13,28 +13,29 @@
           </tr>
       </thead>
       <tbody>
-          @foreach (var product in Model.Products) {
+          @foreach (var product in Model.Items) {
               <tr>
-                  <td class="text-left font-weight-bolder">@product.ProductId</td>
+                  <td class="text-left font-weight-bolder">@product.Product.ProductId</td>
                   <td><a class="text-dark font-weight-bolder"
                           asp-controller="Product"
                           asp-action="Product"
-                          asp-route-productId="@product.ProductId">@product.ProductName</a>
-                </td>
-                  <td class="text-center font-weight-bolder">@product.UnitPrice.Value.ToString("c", new CultureInfo("en-us"))</td>
-                  <td class="text-right font-weight-bolder">@product.UnitsInStock</td>
+                          asp-route-productId="@product.Product.ProductId">@product.Product.ProductName</a>
+                          <p><em>@{string name = product.Category is null ? "Category isn't set": product.Category.CategoryName;}@name</em></p>
+                  </td>
+                  <td class="text-center font-weight-bolder">@product.Product.UnitPrice.Value.ToString("c", new CultureInfo("en-us"))</td>
+                  <td class="text-right font-weight-bolder">@product.Product.UnitsInStock</td>
                   <td>
                     <a class="btn btn-danger btn-sm btn-block"
                         asp-controller="Product"
                         asp-action="Remove"
-                        asp-route-productId="@product.ProductId">Remove</a>
+                        asp-route-productId="@product.Product.ProductId">Remove</a>
                   </td>
               </tr>
           }
       </tbody>
   </table>
 
-<a class="col-5 btn btn-primary btn-lg btn-block" asp-controller="Product" asp-action="CreateProduct">Add new product</a>
+<a class="col-5 btn btn-primary btn-lg" asp-controller="Product" asp-action="CreateProduct">Add new product</a>
 
 <div page-model="@Model.PagingInfo" page-action="Products" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"

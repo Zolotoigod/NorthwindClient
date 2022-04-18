@@ -1,0 +1,15 @@
+﻿@model Category
+
+<form method="post" asp-action="Create" asp-controller="Category" asp-antiforgery="true">
+    <table class="table table-bordered table-striped">
+        <tr>       
+            <td><label class="form-label">CategoryName</label></td>
+            <td><input class="form-control" type="text" asp-for="CategoryName"/></td>
+        </tr>
+        <tr>
+            <td><label class="form-label">Description</label></td>
+            <td><input class="form-control" asp-for="Description"/></td>
+        </tr>      
+    </table>
+    <button type="submit" class="btn btn-primary ">Save changes</button>
+</form>
